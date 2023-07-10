@@ -5,6 +5,7 @@ from django.contrib.auth import login, authenticate , logout
 from . import forms
 
 from .models import Patient
+from datetime import date, timedelta
 
 # Create your views here.
 
@@ -51,7 +52,17 @@ def signup_page(request):
 
 
 
-def patient_page(request):
-    patients = Patient.objects.all()
-    return render(request, 'note_psy/patient.html', context={'patients': patients})
+# def patient_page(request):
+#     patients = Patient.objects.all()
+#     return render(request, 'note_psy/patient.html', context={'patients': patients})
 
+def patient_page(request):
+    start_date = request.GET.get('start_date')
+    end_date = request.GET.get('end_date')
+
+    patients = Patient.objects.filter(patient_left=True).order_by('patient_lastname', 'patient_firstname', '-date')
+
+    if start_date and end_date:
+        patients = patients.filter(date__range=(start_date, end_date))
+
+    return render(request, 'note_psy/patient.html', context={'patients': patients})
