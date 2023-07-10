@@ -4,6 +4,8 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate , logout
 from . import forms
 
+from .models import Patient
+
 # Create your views here.
 
 
@@ -44,5 +46,12 @@ def signup_page(request):
             user = form.save()
             # auto-login user
             login(request, user)
-            return redirect(settings.LOGIN_REDIRECT_URL)
+            return redirect('login')
     return render(request, 'note_psy/signup.html', context={'form': form})
+
+
+
+def patient_page(request):
+    patients = Patient.objects.all()
+    return render(request, 'note_psy/patient.html', context={'patients': patients})
+
