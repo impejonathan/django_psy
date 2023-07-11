@@ -7,19 +7,26 @@
     <input type="submit" value="Filtrer">
 </form>
 
+
 <table>
     <tr>
         <th>Nom</th>
         <th>Prénom</th>
-        <th>Date</th>
         <th>Left</th>
+        <th>Emotions</th>
     </tr>
-    {% for patient in patients %}
+    {% for patient, emotions in patients_emotions %}
     <tr>
         <td>{{ patient.patient_lastname }}</td>
         <td>{{ patient.patient_firstname }}</td>
-        <td>{{ patient.date }}</td>
         <td>{{ patient.patient_left }}</td>
+        <td>
+            <ul>
+                {% for emotion, count in emotions.items %}
+                <li>{{ emotion }}: {{ count }}</li>
+                {% endfor %}
+            </ul>
+        </td>
     </tr>
     {% endfor %}
 </table>
