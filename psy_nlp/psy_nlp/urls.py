@@ -22,7 +22,10 @@ urlpatterns = [
     # path('', views.index ),
     path('', views.login_page, name='login'),
     path('signup', views.signup_page, name='signup'),
-    # path('logout/', views.logout_user, name='logout'),
+    path('logout/', views.logout_user, name='logout'),
     path('patients/', views.patient_page, name='patients'),
-
+    path('texte_patient/', views.texte_patient, name='texte_patient'),
+    path('recherche_patient/', views.recherche_patient, name='recherche_patient'),
+    path('recherche_text/', views.recherche_text, name='recherche_text'),
+    path('creation_patient/', views.creation_patient, name='creation_patient'),
 ]

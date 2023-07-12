@@ -1,32 +1,38 @@
 <!-- patient.html -->
-<form method="get">
-    <label for="start_date">Date de début:</label>
-    <input type="date" id="start_date" name="start_date">
-    <label for="end_date">Date de fin:</label>
-    <input type="date" id="end_date" name="end_date">
-    <input type="submit" value="Filtrer">
-</form>
+
+{% extends 'note_psy/base.html' %}
 
 
-<table>
-    <tr>
-        <th>Nom</th>
-        <th>Prénom</th>
-        <th>Left</th>
-        <th>Emotions</th>
-    </tr>
-    {% for patient, emotions in patients_emotions %}
-    <tr>
-        <td>{{ patient.patient_lastname }}</td>
-        <td>{{ patient.patient_firstname }}</td>
-        <td>{{ patient.patient_left }}</td>
-        <td>
-            <ul>
-                {% for emotion, count in emotions.items %}
-                <li>{{ emotion }}: {{ count }}</li>
-                {% endfor %}
-            </ul>
-        </td>
-    </tr>
-    {% endfor %}
-</table>
+{% block content %}
+    <div class="container">
+        <h1 class="text-center">Liste des patients</h1>
+        <div class="border p-3">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Nom</th>
+                        <th>Prénom</th>
+                        <th>Left</th>
+                        <th>Emotions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for patient, emotions in patients_emotions %}
+                    <tr>
+                        <td>{{ patient.patient_lastname }}</td>
+                        <td>{{ patient.patient_firstname }}</td>
+                        <td>{{ patient.patient_left }}</td>
+                        <td>
+                            <ul>
+                                {% for emotion, count in emotions.items %}
+                                <li>{{ emotion }}: {{ count }}</li>
+                                {% endfor %}
+                            </ul>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

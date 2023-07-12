@@ -3,15 +3,23 @@
 {% comment %} ------------signup---------- {% endcomment %}
 
 {% block content %}
-
-<h2>Inscription</h2>
-{% if form.errors %}
-    {{ form.errors }}
-{% endif %}
-<form method="post">
-    {{ form.as_p }}
-    {% csrf_token %}
-    <button type="submit" >S’inscrire</button>
-</form>
-
+<div class="container-fluid pt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="text-center">Inscription</h2>
+                    {% if form.errors %}
+                        {{ form.errors }}
+                    {% endif %}
+                    <form method="post">
+                        {{ form.as_p }}
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-primary">S’inscrire</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

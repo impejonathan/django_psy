@@ -1,0 +1,20 @@
+{% extends 'note_psy/base.html' %}
+
+{% block content %}
+    <div class="container text-center">
+        <form method="post" class="my-5">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="text">Texte :</label>
+                <input type="text" id="text" name="text" class="form-control mt-5">
+            </div>
+            <button type="submit" class="btn btn-primary mt-5">Analyser</button>
+        </form>
+
+        {% if emotion %}
+            <div class="alert alert-info pt-5">
+                <p>Emotion : {{ emotion }}</p>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}
