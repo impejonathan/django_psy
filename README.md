@@ -4,7 +4,7 @@ projet NLP a partie des note
 
 # Application Django pour les psychologues
 
-Cette application Django permet aux psychologues de gérer les informations de leurs patients et d'analyser les émotions des textes écrits par les patients. L'application utilise une base de données PostgreSQL pour stocker les informations sur les patients et les psychologues, et une base Elasticsearch pour stocker les textes et les évaluations des émotions. Le front-end de l'application utilise Bootstrap pour un design moderne et réactif.
+Cette application Django permet aux psychologues de gérer les informations de leurs patients et d'analyser les émotions des textes écrits par les patients. L'application utilise une base de données **PostgreSQL** installée localement avec le logiciel PostgreSQL et pgAdmin4 pour stocker les informations sur les patients et les psychologues, et une instance **Elasticsearch** exécutée sur Docker pour stocker les textes et les évaluations des émotions. Le front-end de l'application utilise Bootstrap pour un design moderne et réactif.
 
 ## Fonctionnalités
 
